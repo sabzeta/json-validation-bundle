@@ -3,10 +3,14 @@
 <container xmlns="http://symfony.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>
+        <parameter key="joipolloi_jsonvalidation.schema_path">%kernel.project_dir%/assets/schemas</parameter>
+    </parameters>
 
     <services>
         <service id="joipolloi_jsonvalidation.json_validator" class="JoiPolloi\Bundle\JsonValidationBundle\JsonValidator\JsonValidator">
             <argument type="service" id="file_locator" />
+            <argument>%joipolloi_jsonvalidation.schema_path%</argument>
         </service>
         <service id="joipolloi_jsonvalidation.validate_json_listener" class="JoiPolloi\Bundle\JsonValidationBundle\Annotation\ValidateJsonListener">
             <argument type="service" id="joipolloi_jsonvalidation.json_validator" />

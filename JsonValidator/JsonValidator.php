@@ -24,17 +24,28 @@ use JsonSchema\Validator,
  */
 class JsonValidator
 {
-    /** @var FileLocatorInterface */
+    /**
+     * @var FileLocatorInterface
+     */
     protected $locator;
-    /** @var array */
+
+    /**
+     * @var array
+     */
     protected $validationErrors = [];
+
+    /**
+     * @var string - base location to look for the schema files
+     */
+    protected $path;
 
     /**
      * @param FileLocatorInterface $locator
      */
-    public function __construct(FileLocatorInterface $locator)
+    public function __construct(FileLocatorInterface $locator, string $path)
     {
         $this->locator = $locator;
+        $this->path = $path;
     }
 
     /**
@@ -52,7 +63,7 @@ class JsonValidator
         $schema = null;
 
         try {
-            $schema = $this->locator->locate($schemaPath);
+            $schema = $this->locator->locate($schemaPath, $this->path);
         } catch (\InvalidArgumentException $e) {
             $this->validationErrors[] = [
                 'property' => null,
