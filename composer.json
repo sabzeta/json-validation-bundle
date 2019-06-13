@@ -1,5 +1,5 @@
 {
-    "name": "sabzeta/json-validation-bundle",
+    "name": "wcbs-ltd/json-validation-bundle",
     "description": "This bundle provides a way to validate JSON passed to a request against a schema",
     "type": "symfony-bundle",
     "require": {
