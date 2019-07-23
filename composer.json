@@ -3,8 +3,8 @@
     "description": "This bundle provides a way to validate JSON passed to a request against a schema",
     "type": "symfony-bundle",
     "require": {
-        "symfony/config": "^4.2",
-        "symfony/http-foundation": "^4.2",
+        "symfony/config": "^4.3",
+        "symfony/http-foundation": "^4.3",
         "justinrainbow/json-schema": "^5.2",
         "sensio/framework-extra-bundle": ">=3.0"
     },
